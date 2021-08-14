@@ -37,7 +37,7 @@ class Details extends Component {
     } = this.state;
 
     return (
-      <div className="details">
+      <div>
         <Carousel images={images} />
         <div>
           <h1>{name}</h1>
@@ -57,7 +57,7 @@ class Details extends Component {
             <Modal>
               <div>
                 <h1>Would you like to adopt {name}?</h1>
-                <div className="buttons">
+                <div>
                   <button onClick={this.adopt}>Yes</button>
                   <button onClick={this.toggleModal}>No</button>
                 </div>
