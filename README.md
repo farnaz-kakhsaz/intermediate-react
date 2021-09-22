@@ -39,7 +39,7 @@ npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat@2.0.3 postcss@7.0.35
 
 - We're using Parcel 1 in this project. They're heads-down on making Parcel 2 a reality which supports PostCSS 8. Parcel 1 is stuck on PostCSS 7. Tailwind 2 requires PostCSS 8 but luckily they provide a compatibility library with PostCSS 7. That's what `npm:@tailwindcss/postcss7-compat@2.0.3` is doing: it's called an alias. We're installing `@tailwindcss/postcss7-compat` and then aliasing it to `tailwindcss`. If you're brave you could try upgrading to Parcel 2 and then this wouldn't be necessary.
 
-Okay, now let's get our Tailwind project going. Run `npx tailwindcss init`. Like `tsc init` for TypeScript, this will spit out a basic starting config in tailwind.config.js. Should look like:
+Okay, now let's get our Tailwind project going. Run `npx tailwindcss init` (which is going to generate a config for us). Like `tsc init` for TypeScript, this will spit out a basic starting config in tailwind.config.js. Should look like:
 
 ```JavaScript
 module.exports = {
@@ -95,3 +95,15 @@ What's cool about the TailwindCSS is that's a lot of class names. But what Tailw
 
 Your trade-off here is that your classNames here are going to get very long. Cuz if you wanna apply a lot of styles like sometimes you do in CSS
 they can tend to get pretty long. So this is the trade-off that you're making here.
+
+**`em` measurement:** My parent element's font-size. `em` actually acale with your font size, cuz it's the size of a literal "m" (like an "m" no the page)
+**`rem` measurement:** The root element's font-size. It's root em
+
+> While `em` is relative to the font-size of its direct or nearest parent, `rem` is only relative to the html (root) font-size.
+
+> All of the measurements in Tailwind are all done with `rem`s.
+
+> PostCSS, you can kind of think of to fill a similar role ot SASS.
+> PostCSS, in and of itself, is like Babel that all PostCss does is process CSS. Babel by itself does nothing, Babel needs plugins and presets and configuration stuff for it to do anything. PostCss is the exact same way, whereas SASS out of the box does a bunch of stuff. SASS is a language unto itself.
+>
+> So in this particular case, PostCSS is the processor, but the actual transformations are coming from Tailwind. And that's the difference there. Tailwind needs PostCSS. PostCSS doesn't necessarily need Tailwind.
